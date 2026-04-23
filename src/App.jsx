@@ -11,18 +11,6 @@ import Projects from './Components/Project.jsx';
 import Contact from './Components/Contact.jsx';
 
 function App() {
-
-  const footerStyles = {
-    footer: {
-      padding: '30px 10%',
-      background: '#111',
-      textAlign: 'center'
-    },
-    footerText: {
-      fontSize: '16px'
-    }
-  };
-
   return (
     <Router>
       <div className="app">
@@ -37,10 +25,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
 
-        <footer style={footerStyles.footer}>
-          <div style={footerStyles.footerText}>
-            <p>© 2026 A.S. PRANAY | All Rights Reserved</p>
-          </div>
+        <footer>
+          <p>© 2026 A.S. PRANAY | All Rights Reserved</p>
         </footer>
 
       </div>

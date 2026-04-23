@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ProfileImage from '../assets/Profileimage.png';
 
 const Hero = () => {
   const styles = {
@@ -52,20 +53,6 @@ const Hero = () => {
       opacity: 0,
       animationFillMode: 'forwards'
     },
-    socialIcon: {
-      display: 'inline-flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '45px',
-      height: '45px',
-      background: 'transparent',
-      border: '2px solid var(--primary)',
-      borderRadius: '50%',
-      fontSize: '22px',
-      color: 'var(--primary)',
-      textDecoration: 'none',
-      transition: '0.5s'
-    },
     heroImage: {
       width: '380px',
       height: '380px',
@@ -83,39 +70,101 @@ const Hero = () => {
     }
   };
 
+  // CSS styles matching your cyan/blue theme
+  const hoverStyles = `
+    .social-icon-hover {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 45px;
+      height: 45px;
+      background: transparent;
+      border: 2px solid #0ef;
+      border-radius: 50%;
+      font-size: 22px;
+      color: #0ef;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .social-icon-hover:hover {
+      background: #0ef;
+      border-color: #0ef;
+      color: #000;
+      box-shadow: 0 0 25px #0ef;
+      transform: translateY(-5px) scale(1.1);
+    }
+    
+    /* Optional: Add a subtle pulse animation on hover */
+    .social-icon-hover:hover i {
+      animation: iconPulse 0.3s ease;
+    }
+    
+    @keyframes iconPulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  `;
+
   return (
-    <section style={styles.hero}>
-      <div style={styles.content}>
-        <h1 style={styles.title}>
-          ARAVEETI <span style={styles.titleSpan}>SHANMUK PRANAY</span>
-        </h1>
-        <h3 style={styles.subtitle}>AI Enthusiast & Full-Stack Developer</h3>
-        <p style={styles.description}>
-          Passionate developer skilled in Python, React, and Flask. I build intelligent applications 
-          with automated scheduling, conflict resolution, and responsive user interfaces.
-        </p>
-        
-        <div style={styles.socialMedia}>
-          <a href="https://www.linkedin.com/in/shanmuk-pranay-araveeti-66abb12ba/" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>
-            <i className="fab fa-linkedin-in"></i>
-          </a>
-          <a href="https://github.com/ShanmukPranay" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>
-            <i className="fab fa-github"></i>
-          </a>
-          <a href="mailto:shanmukharaveeti77@gmail.com" target="_blank" rel="noopener noreferrer" style={styles.socialIcon}>
-            <i className="fas fa-envelope"></i>
-          </a>
+    <>
+      <style>{hoverStyles}</style>
+      <section style={styles.hero}>
+        <div style={styles.content}>
+          <h1 style={styles.title}>
+            ARAVEETI <span style={styles.titleSpan}>SHANMUK PRANAY</span>
+          </h1>
+          <h3 style={styles.subtitle}>Full-Stack Developer & AI Enthusiast</h3>
+          <p style={styles.description}>
+            I'm a Full-Stack Developer passionate about building intelligent web applications using Python, React, and Flask. 
+            I specialize in creating scalable solutions with automated scheduling, conflict resolution, and responsive user interfaces.
+          </p>
+          
+          <div style={styles.socialMedia}>
+            <a 
+              href="https://www.linkedin.com/in/shanmuk-pranay-araveeti-66abb12ba/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon-hover"
+            >
+              <i className="fab fa-linkedin-in"></i>
+            </a>
+            <a 
+              href="https://github.com/ShanmukPranay" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon-hover"
+            >
+              <i className="fab fa-github"></i>
+            </a>
+            <a 
+              href="mailto:shanmukharaveeti77@gmail.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon-hover"
+            >
+              <i className="fas fa-envelope"></i>
+            </a>
+          </div>
+          
+          <Link to="/contact" className="btn" target="_blank">
+            Let's Connect
+          </Link>
         </div>
         
-        <Link to="/contact" className="btn" target="_blank">
-          Let's Connect
-        </Link>
-      </div>
-      
-      <div style={styles.heroImage}>
-        <img src="/PROFILEPIC.png" alt="Shanmuk Pranay" style={styles.image} />
-      </div>
-    </section>
+        <div style={styles.heroImage}>
+          <img src={ProfileImage} alt="Shanmuk Pranay" style={styles.image} />
+        </div>
+      </section>
+    </>
   );
 };
 

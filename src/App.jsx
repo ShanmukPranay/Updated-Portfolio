@@ -7,6 +7,7 @@ import Navbar from './Components/Navbar.jsx';
 import Hero from './Components/Hero.jsx';
 import About from './Components/About.jsx';
 import Skills from './Components/Skills.jsx';
+import Education from './Components/Education.jsx';
 import Projects from './Components/Project.jsx'; 
 import Contact from './Components/Contact.jsx';
 
@@ -28,6 +29,9 @@ function App() {
               </section>
               <section id="skills">
                 <Skills />
+              </section>
+              <section id="education">
+                <Education />
               </section>
               <section id="projects">
                 <Projects />

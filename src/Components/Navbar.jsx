@@ -8,10 +8,7 @@ const Navbar = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-  };
-
-  const openProjectsInNewTab = () => {
-    window.open('/projects-page', '_blank');
+    setMenuOpen(false);
   };
 
   return (
@@ -47,6 +44,9 @@ const Navbar = () => {
         </div>
         <div onClick={() => handleScroll('skills')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
           Skills
+        </div>
+        <div onClick={() => handleScroll('education')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
+          Education
         </div>
         <div onClick={() => handleScroll('projects')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
           Projects

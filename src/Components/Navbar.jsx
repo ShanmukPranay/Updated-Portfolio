@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
 
-  const navLinks = [
-    { path: '/', name: 'Home' },
-    { path: '/about', name: 'About' },
-    { path: '/skills', name: 'Skills' },
-    { path: '/projects', name: 'Projects' },
-    { path: '/contact', name: 'Contact' }
-  ];
+  const handleScroll = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
-  const styles = {
-    navbar: {
+  const openProjectsInNewTab = () => {
+    window.open('/projects-page', '_blank');
+  };
+
+  return (
+    <nav style={{
       position: 'fixed',
       top: 0,
       left: 0,
@@ -26,81 +27,33 @@ const Navbar = () => {
       justifyContent: 'space-between',
       alignItems: 'center',
       zIndex: 100,
-      transition: 'all 0.3s ease'
-    },
-    logo: {
-      fontSize: '25px',
-      color: 'var(--text)',
-      textDecoration: 'none',
-      fontWeight: 700
-    },
-    logoSpan: {
-      color: 'var(--primary)'
-    },
-    navLinks: {
-      display: 'flex',
-      gap: '35px'
-    },
-    link: {
-      fontSize: '18px',
-      color: 'var(--text)',
-      textDecoration: 'none',
-      fontWeight: 500,
-      transition: '0.3s'
-    },
-    menuToggle: {
-      display: 'none',
-      fontSize: '28px',
-      color: 'var(--text)',
-      cursor: 'pointer'
-    },
-    responsiveNavLinks: {
-      position: 'absolute',
-      top: '100%',
-      left: 0,
-      width: '100%',
-      padding: '20px',
-      background: 'rgba(0, 0, 0, 0.95)',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: '20px',
-      display: 'none'
-    }
-  };
-
-  return (
-    <nav style={styles.navbar}>
-      <Link to="/" style={styles.logo} target="_blank">
-        PRA<span style={styles.logoSpan}>NAY</span>
-      </Link>
+    }}>
+      <div onClick={() => handleScroll('home')} style={{ fontSize: '25px', color: '#fff', textDecoration: 'none', fontWeight: 700, cursor: 'pointer' }}>
+        PRA<span style={{ color: '#0ef' }}>NAY</span>
+      </div>
       <div 
-        style={styles.menuToggle} 
+        style={{ display: 'none', fontSize: '28px', color: '#fff', cursor: 'pointer' }}
         className="menu-toggle"
         onClick={() => setMenuOpen(!menuOpen)}
       >
         <i className="fas fa-bars"></i>
       </div>
-      <div 
-        style={{
-          ...styles.navLinks,
-          ...(window.innerWidth <= 768 ? (menuOpen ? styles.responsiveNavLinks : { display: 'none' }) : {})
-        }}
-        className="nav-links"
-      >
-        {navLinks.map((link) => (
-          <Link
-            key={link.path}
-            to={link.path}
-            target="_blank"
-            style={{
-              ...styles.link,
-              ...(location.pathname === link.path && { color: 'var(--primary)', textShadow: '0 0 10px var(--primary)' })
-            }}
-            onClick={() => setMenuOpen(false)}
-          >
-            {link.name}
-          </Link>
-        ))}
+      <div style={{ display: 'flex', gap: '35px' }} className="nav-links">
+        <div onClick={() => handleScroll('home')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
+          Home
+        </div>
+        <div onClick={() => handleScroll('about')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
+          About
+        </div>
+        <div onClick={() => handleScroll('skills')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
+          Skills
+        </div>
+        <div onClick={openProjectsInNewTab} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
+          Projects
+        </div>
+        <div onClick={() => handleScroll('contact')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
+          Contact
+        </div>
       </div>
     </nav>
   );

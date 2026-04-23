@@ -1,8 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ProfileImage from '../assets/Profileimage.png';
 
 const Hero = () => {
+  const handleScroll = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const openProjectsInNewTab = () => {
+    window.open('/projects-page', '_blank');
+  };
+
   const styles = {
     hero: {
       minHeight: '100vh',
@@ -11,22 +21,31 @@ const Hero = () => {
       justifyContent: 'space-between',
       padding: '0 10%',
       background: 'radial-gradient(circle at 30% 10%, rgba(0, 238, 255, 0.08), #000000 80%)',
-      gap: '50px'
+      gap: '50px',
+      flexWrap: 'wrap'
     },
     content: {
-      maxWidth: '600px'
+      maxWidth: '700px',
+      flex: 1,
+      minWidth: '280px'
     },
     title: {
-      fontSize: '56px',
+      fontSize: 'clamp(24px, 4vw, 48px)',
       fontWeight: 700,
       marginBottom: '20px',
-      animation: 'slideRight 1s ease forwards'
+      animation: 'slideRight 1s ease forwards',
+      lineHeight: 1.3,
+      wordBreak: 'keep-all',
+      whiteSpace: 'normal'
+    },
+    titleNormal: {
+      color: '#fff'
     },
     titleSpan: {
       color: 'var(--primary)'
     },
     subtitle: {
-      fontSize: '32px',
+      fontSize: 'clamp(18px, 3.5vw, 28px)',
       fontWeight: 700,
       color: 'var(--primary)',
       marginBottom: '15px',
@@ -36,7 +55,7 @@ const Hero = () => {
       animationFillMode: 'forwards'
     },
     description: {
-      fontSize: '18px',
+      fontSize: 'clamp(14px, 2.5vw, 18px)',
       marginBottom: '30px',
       lineHeight: 1.7,
       animation: 'slideLeft 1s ease forwards',
@@ -51,17 +70,19 @@ const Hero = () => {
       animation: 'slideTop 1s ease forwards',
       animationDelay: '1s',
       opacity: 0,
-      animationFillMode: 'forwards'
+      animationFillMode: 'forwards',
+      flexWrap: 'wrap'
     },
     heroImage: {
-      width: '380px',
-      height: '380px',
+      width: 'clamp(250px, 30vw, 380px)',
+      height: 'clamp(250px, 30vw, 380px)',
       borderRadius: '50%',
       border: '5px solid var(--primary)',
       boxShadow: '0 0 30px rgba(0, 238, 255, 0.5)',
       overflow: 'hidden',
       animation: 'floatImage 4s ease-in-out infinite',
-      background: '#1a1a1a'
+      background: '#1a1a1a',
+      flexShrink: 0
     },
     image: {
       width: '100%',
@@ -70,7 +91,6 @@ const Hero = () => {
     }
   };
 
-  // CSS styles matching your cyan/blue theme
   const hoverStyles = `
     .social-icon-hover {
       display: inline-flex;
@@ -96,20 +116,77 @@ const Hero = () => {
       transform: translateY(-5px) scale(1.1);
     }
     
-    /* Optional: Add a subtle pulse animation on hover */
-    .social-icon-hover:hover i {
-      animation: iconPulse 0.3s ease;
+    .btn-projects {
+      display: inline-block;
+      padding: 12px 28px;
+      background: transparent;
+      border: 2px solid #0ef;
+      border-radius: 40px;
+      font-size: 16px;
+      color: #0ef;
+      font-weight: 600;
+      transition: 0.5s;
+      cursor: pointer;
+      text-decoration: none;
+      margin-left: 15px;
     }
     
-    @keyframes iconPulse {
-      0% {
-        transform: scale(1);
+    .btn-projects:hover {
+      background: #0ef;
+      color: #000;
+      box-shadow: 0 0 20px #0ef;
+      transform: translateY(-5px);
+    }
+    
+    .btn-contact {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #0ef;
+      border-radius: 40px;
+      box-shadow: 0 0 10px #0ef;
+      font-size: 16px;
+      color: #000;
+      font-weight: 600;
+      transition: 0.5s;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-contact:hover {
+      box-shadow: 0 0 20px #0ef;
+      transform: translateY(-5px);
+    }
+    
+    .button-group {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      animation: slideTop 1s ease forwards;
+      animation-delay: 1.2s;
+      opacity: 0;
+      animationFillMode: forwards;
+    }
+
+    /* Make sure text doesn't overflow on small screens */
+    @media (max-width: 768px) {
+      .btn-projects, .btn-contact {
+        padding: 10px 20px;
+        font-size: 14px;
       }
-      50% {
-        transform: scale(1.2);
+      .social-icon-hover {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
       }
-      100% {
-        transform: scale(1);
+    }
+
+    @media (max-width: 480px) {
+      .btn-projects, .btn-contact {
+        padding: 8px 16px;
+        font-size: 12px;
+      }
+      .button-group {
+        gap: 12px;
       }
     }
   `;
@@ -120,9 +197,10 @@ const Hero = () => {
       <section style={styles.hero}>
         <div style={styles.content}>
           <h1 style={styles.title}>
-            ARAVEETI <span style={styles.titleSpan}>SHANMUK PRANAY</span>
+            <span style={styles.titleNormal}>ARAVEETI </span>
+            <span style={styles.titleSpan}>SHANMUK PRANAY</span>
           </h1>
-          <h3 style={styles.subtitle}>Full-Stack Developer & AI Enthusiast</h3>
+          <h3 style={styles.subtitle}>Full-Stack Developer</h3>
           <p style={styles.description}>
             I'm a Full-Stack Developer passionate about building intelligent web applications using Python, React, and Flask. 
             I specialize in creating scalable solutions with automated scheduling, conflict resolution, and responsive user interfaces.
@@ -155,9 +233,14 @@ const Hero = () => {
             </a>
           </div>
           
-          <Link to="/contact" className="btn" target="_blank">
-            Let's Connect
-          </Link>
+          <div className="button-group">
+            <button onClick={() => handleScroll('contact')} className="btn-contact">
+              Let's Connect
+            </button>
+            <button onClick={openProjectsInNewTab} className="btn-projects">
+              View Projects →
+            </button>
+          </div>
         </div>
         
         <div style={styles.heroImage}>

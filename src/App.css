@@ -262,3 +262,74 @@ html {
 .app footer:hover::before {
   left: 100%;
 }
+/* Smooth scrolling for same-page navigation */
+/* Smooth scrolling for same-page navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add padding top to avoid navbar overlap */
+section[id] {
+  scroll-margin-top: 80px;
+}
+/* Contact item hover effect */
+.contact-item-link:hover {
+  transform: translateX(10px);
+  border-color: #0ef !important;
+  box-shadow: 0 0 15px rgba(0, 238, 255, 0.2);
+}
+
+.contact-item-link:hover i {
+  background: #0ef;
+  color: #000 !important;
+  box-shadow: 0 0 20px #0ef;
+  transition: all 0.3s ease;
+}
+
+/* Back to Home button */
+.btn-back {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 28px;
+  background: #0ef;
+  border-radius: 40px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.5s;
+  border: none;
+  font-size: 16px;
+}
+
+.btn-back:hover {
+  box-shadow: 0 0 20px #0ef;
+  transform: translateY(-5px);
+}
+/* Responsive fixes for all sections */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 32px !important;
+  }
+  
+  section {
+    padding: 100px 5% 80px !important;
+  }
+}
+
+/* Ensure text doesn't overflow on small screens */
+h1, h2, h3, h4, h5, h6 {
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Fix for very small screens */
+@media (max-width: 480px) {
+  .heading {
+    font-size: 28px !important;
+  }
+  
+  .btn, .btn-back, .btn-contact, .btn-projects {
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+  }
+}

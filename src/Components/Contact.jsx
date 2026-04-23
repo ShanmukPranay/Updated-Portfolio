@@ -365,14 +365,14 @@ const Contact = () => {
               </form>
             </div>
           </div>
-          <div style={{ textAlign: 'center', marginTop: '50px' }}>
+          {/* <div style={{ textAlign: 'center', marginTop: '50px' }}>
             <button 
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
               className="btn-back"
             >
               ← Back to Home
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

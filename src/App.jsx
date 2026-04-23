@@ -9,7 +9,6 @@ import About from './Components/About.jsx';
 import Skills from './Components/Skills.jsx';
 import Projects from './Components/Project.jsx'; 
 import Contact from './Components/Contact.jsx';
-import ProjectsPage from './Components/ProjectsPage.jsx';
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
 
         <Navbar />
 
-        {/* Main Single Page - All sections visible on scroll */}
         <Routes>
           <Route path="/" element={
             <>
@@ -39,29 +37,18 @@ function App() {
               </section>
             </>
           } />
-          {/* Separate route for Projects page that opens in new tab */}
-          <Route path="/projects-page" element={<ProjectsPage />} />
         </Routes>
 
         <footer className="modern-footer">
-          <div className="footer-content">
-            <div className="footer-logo">
-              <span className="footer-logo-text">PRA<span>NAY</span></span>
+          <div className="footer-container">
+            <div className="footer-brand">
+              <h3>PRA<span>NAY</span></h3>
+              <p>Full-Stack Developer</p>
             </div>
-            <div className="footer-text">
-              <p>© 2026 A.S. PRANAY | All Rights Reserved</p>
-            </div>
-            <div className="footer-social">
-              <a href="https://github.com/ShanmukPranay" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-github"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/shanmuk-pranay-araveeti-66abb12ba/" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a href="mailto:shanmukharaveeti77@gmail.com" target="_blank" rel="noopener noreferrer">
-                <i className="fas fa-envelope"></i>
-              </a>
-            </div>
+          </div>
+          
+          <div className="footer-bottom">
+            <p>© 2026 A.S. PRANAY | All Rights Reserved</p>
           </div>
         </footer>
 

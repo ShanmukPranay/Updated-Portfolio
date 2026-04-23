@@ -48,7 +48,7 @@ const Navbar = () => {
         <div onClick={() => handleScroll('skills')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
           Skills
         </div>
-        <div onClick={openProjectsInNewTab} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
+        <div onClick={() => handleScroll('projects')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>
           Projects
         </div>
         <div onClick={() => handleScroll('contact')} style={{ fontSize: '18px', color: '#fff', textDecoration: 'none', fontWeight: 500, transition: '0.3s', cursor: 'pointer' }}>

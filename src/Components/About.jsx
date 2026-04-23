@@ -33,9 +33,9 @@ const About = () => {
             I thrive in collaborative environments and am always eager to learn emerging technologies. When not coding, 
             I contribute to open-source projects and sharpen my skills in cybersecurity and development tools.
           </p>
-          <div style={{ textAlign: 'center' }}>
+          {/* <div style={{ textAlign: 'center' }}>
             <Link to="/" className="btn-back" target="_blank">← Back to Home</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

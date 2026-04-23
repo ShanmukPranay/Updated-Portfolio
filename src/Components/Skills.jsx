@@ -196,9 +196,9 @@ const Skills = () => {
             ))}
           </div>
         </div>
-        <div style={{ textAlign: 'center', marginTop: '50px' }}>
+        {/* <div style={{ textAlign: 'center', marginTop: '50px' }}>
           <Link to="/" className="btn-back" target="_blank">← Back to Home</Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

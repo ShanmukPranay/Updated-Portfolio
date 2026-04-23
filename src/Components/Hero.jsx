@@ -9,10 +9,6 @@ const Hero = () => {
     }
   };
 
-  const openProjectsInNewTab = () => {
-    window.open('/projects-page', '_blank');
-  };
-
   const styles = {
     hero: {
       minHeight: '100vh',
@@ -167,7 +163,6 @@ const Hero = () => {
       animationFillMode: forwards;
     }
 
-    /* Make sure text doesn't overflow on small screens */
     @media (max-width: 768px) {
       .btn-projects, .btn-contact {
         padding: 10px 20px;
@@ -237,7 +232,7 @@ const Hero = () => {
             <button onClick={() => handleScroll('contact')} className="btn-contact">
               Let's Connect
             </button>
-            <button onClick={openProjectsInNewTab} className="btn-projects">
+            <button onClick={() => handleScroll('projects')} className="btn-projects">
               View Projects →
             </button>
           </div>

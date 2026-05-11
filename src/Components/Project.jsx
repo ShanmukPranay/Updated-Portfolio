@@ -1,19 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Import your project images from assets folder
+import SlotFissionImage from '../assets/slotfission.png';
+import TendonImage from '../assets/tendon.png';
+
 const Projects = () => {
   const projects = [
     {
       title: 'SlotFission - Timetable Generator',
       description: 'Built a full-stack timetable generator using Python and Flask with automated scheduling, conflict resolution, and responsive UI.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
+      image: SlotFissionImage,
       tech: ['React', 'JavaScript', 'Python', 'Flask'],
       github: 'https://github.com/ShanmukPranay/slotfission-project'
     },
     {
       title: 'Tendon - Cybersecurity Platform',
       description: 'A cybersecurity project where I worked as the Frontend Developer. Built a responsive and secure UI for cybersecurity tools.',
-      image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop',
+      image: TendonImage,
       tech: ['React', 'JavaScript', 'REST API'],
       github: 'https://github.com/tendon-project26/tendon-frontend'
     }
@@ -43,7 +47,8 @@ const Projects = () => {
     },
     cardImg: {
       height: '220px',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      backgroundColor: '#0a0a0a'
     },
     image: {
       width: '100%',
